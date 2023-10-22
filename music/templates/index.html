@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Player</title>
+</head>
+<body>
+    <h1>Music Player</h1>
+    <ul>
+        <li><a href="/play?file=music/song1.mp3">Song 1</a></li>
+        <li><a href="/play?file=music/song2.mp3">Song 2</a></li>
+        <!-- Add more songs as needed -->
+    </ul>
+    <audio id="audio" controls>
+        <source src="" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const songLinks = document.querySelectorAll('ul li a');
+
+        songLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                audio.src = link.getAttribute('href');
+                audio.play();
+            });
+        });
+    </script>
+</body>
+</html>
+
+
